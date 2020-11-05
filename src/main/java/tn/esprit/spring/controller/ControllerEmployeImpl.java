@@ -19,6 +19,7 @@ import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Role;
 import tn.esprit.spring.entities.Timesheet;
+import tn.esprit.spring.services.IContratService;
 import tn.esprit.spring.services.IEmployeService;
 
 
@@ -30,6 +31,8 @@ public class ControllerEmployeImpl  {
 
 	@Autowired
 	IEmployeService employeService;
+	@Autowired
+	IContratService contartService;
 
 	private String login; 
 	private String password; 
@@ -44,6 +47,7 @@ public class ControllerEmployeImpl  {
 	public Role[] getRoles() { return Role.values(); }
 
 	private List<Employe> employes; 
+	private List<Contrat> contrats; 
 
 	private Integer employeIdToBeUpdated; // getter et setter
 
@@ -297,6 +301,15 @@ public class ControllerEmployeImpl  {
 		this.employes = employes;
 	}
 
+	public List<Contrat> getContrat() {
+		contrats = contartService.getAllContrats(); 
+		return contrats;
+	}
+	
+	public void setContrats(List<Contrat> contrats) {
+		this.contrats = contrats;
+	}
+	
 	public Integer getEmployeIdToBeUpdated() {
 		return employeIdToBeUpdated;
 	}

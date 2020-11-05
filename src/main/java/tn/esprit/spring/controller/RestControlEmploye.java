@@ -18,6 +18,7 @@ import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.entities.Entreprise;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.entities.Timesheet;
+import tn.esprit.spring.services.IContratService;
 import tn.esprit.spring.services.IEmployeService;
 import tn.esprit.spring.services.IEntrepriseService;
 import tn.esprit.spring.services.ITimesheetService;
@@ -31,6 +32,8 @@ public class RestControlEmploye {
 	IEntrepriseService ientrepriseservice;
 	@Autowired
 	ITimesheetService itimesheetservice;
+	@Autowired
+	IContratService icontratservice;
 
 	
 	// http://localhost:8081/SpringMVC/servlet/ajouterEmployer
@@ -175,7 +178,13 @@ public class RestControlEmploye {
 		
 		return iemployeservice.getAllEmployes();
 	}
-
+	 // URL : http://localhost:8081/SpringMVC/servlet/getAllContrats
+	@GetMapping(value = "/getAllContrats")
+    @ResponseBody
+	public List<Contrat> getAllContrats() {
+		
+		return icontratservice.getAllContrats();
+	}
 	
 	
 }
