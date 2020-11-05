@@ -2,6 +2,8 @@ package tn.esprit.spring.services;
 
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -14,10 +16,12 @@ public class ContratServiceImpl implements IContratService {
 
 	@Autowired
 	ContratRepository contratRepository;
-
+	private static final Logger l = LogManager.getLogger(ContratServiceImpl.class);
 
 	public List<Contrat> getAllContrats() {
+		l.info("In  retrieveAllContart : "); 
 		return (List<Contrat>) contratRepository.findAll();
+		
 	}
 
 }
