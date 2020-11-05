@@ -555,3 +555,4 @@
 2020-11-05 16:51:33.966  INFO 4560 --- [restartedMain] tn.esprit.spring.TimesheetApplication    : Started TimesheetApplication in 9.016 seconds (JVM running for 10.944)
 2020-11-05 16:53:27.955  INFO 4560 --- [http-nio-8010-exec-1] o.a.c.c.C.[.[localhost].[/SpringMVC]     : Initializing Spring DispatcherServlet 'dispatcherServlet'
 2020-11-05 16:53:28.005  INFO 4560 --- [http-nio-8010-exec-1] unknown.jul.logger                       : Loaded [1] org.ocpsoft.rewrite.spi.GlobalParameterProvider [org.ocpsoft.rewrite.instance.WildcardParameterProvider<0>]
+2020-11-05 16:53:28.033  INFO 4560 --- [http-nio-8010-exec-1] t.e.spring.services.ContratServiceImpl   : In  retrieveAllContart : 
