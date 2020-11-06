@@ -9,12 +9,21 @@ import org.springframework.web.bind.annotation.RequestMapping;
  
 public class ServletInitializer extends SpringBootServletInitializer {
  
+<<<<<<< HEAD
     
+=======
+    @Override
+>>>>>>> Hammedi
     protected SpringApplicationBuilder configure(SpringApplicationBuilder application) {
         return application.sources(TimesheetApplication.class);
     }
     
+<<<<<<< HEAD
    
+=======
+    public static void main(String[] args) {SpringApplication.run(TimesheetApplication.class, args);}
+
+>>>>>>> Hammedi
    
     
 }
