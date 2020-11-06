@@ -1,18 +1,29 @@
 pipeline {
 agent any
+
 stages{
-stage('clone and repo'){
-steps {
-cleanWs()
-bat "git clone https://github.com/MedHammedi/CI-Project/"
+
+stage('clone repo'){
+	steps {
+		cleanWs()
+		bat "git clone https://github.com/MedHammedi/JenkPipeline"
 }}
 stage('Build and Test'){
-steps{ 
-bat "mvn install -f CI-Project"
+	steps{ 
+		bat "mvn install -f JenkPipeline"
 }}
-stage(' Deploy '){
-steps {
-bat "mvn package -f CI-Project"
-bat "mvn deploy -f CI-Project"
-bat "mvn sonar:sonar -f CI-Project"
-} }}}
+
+stage("mail") {
+	steps {
+		mail bcc: '', body: '''Hello User the build of your project successed.
+        Jenkins.''', cc: '', from: '', replyTo: '', subject: 'Build succed', to:'hammedim7@gmail.com'
+}}
+
+stage('Deploy'){
+	steps {
+		bat "mvn package -f JenkPipeline"
+		bat "mvn deploy -f JenkPipeline"
+		bat "mvn sonar:sonar -f JenkPipeline"
+}}
+
+}}
