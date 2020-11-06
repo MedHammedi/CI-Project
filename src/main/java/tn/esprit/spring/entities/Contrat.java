@@ -45,6 +45,11 @@ public class Contrat implements Serializable {
 	}
 
 
+	public Contrat(int reference) {
+		super();
+		this.reference = reference;
+	}
+
 	public Date getDateDebut() {
 		return dateDebut;
 	}
