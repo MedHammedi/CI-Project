@@ -6,11 +6,8 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
 
 import tn.esprit.spring.entities.Contrat;
-import tn.esprit.spring.entities.Employe;
 import tn.esprit.spring.repository.ContratRepository;
 
 @Service

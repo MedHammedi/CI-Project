@@ -43,7 +43,6 @@ public class Contrat implements Serializable {
 		this.typeContrat = typeContrat;
 		this.salaire = salaire;
 	}
-	
 
 
 	public Contrat(int reference) {
