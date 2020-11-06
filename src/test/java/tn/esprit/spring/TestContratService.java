@@ -61,7 +61,7 @@ public class TestContratService {
 			Employe e = new Employe(1);
 			es.affecterContratAEmploye(c.getReference(),e.getId());
 			assertEquals(c.getReference(),c.getReference());
-			l.info("\n" + "\n" + " ContratAffected . " + "\n" + "\n" );
+			l.info("\n" + "\n" + " Contrat Affected . " + "\n" + "\n" );
 		}
 
 		@Test
@@ -69,7 +69,7 @@ public class TestContratService {
 			Contrat c = new Contrat(13);
 			es.deleteContratById(c.getReference());
 			assertEquals(c.getReference(),c.getReference());
-			l.info("\n" + "\n" + " Contrat Deleted. " + "\n" + "\n");
+			l.info("\n" + "\n" + " Contrat Deleteds. " + "\n" + "\n");
 		}
 
 	}
