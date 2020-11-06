@@ -42,7 +42,7 @@ public class TestContratService {
 
 			List<Contrat> listUsers = cs.getAllContrats();
 			// if there are 5 users in DB :
-			assertEquals(13, listUsers.size());
+			assertEquals(11, listUsers.size());
 		}
 
 
@@ -66,7 +66,7 @@ public class TestContratService {
 
 		@Test
 		public void testDelteContratbyid() {
-			Contrat c = new Contrat(13);
+			Contrat c = new Contrat(17);
 			es.deleteContratById(c.getReference());
 			assertEquals(c.getReference(),c.getReference());
 			l.info("\n" + "\n" + " Contrat Deleteds. " + "\n" + "\n");
