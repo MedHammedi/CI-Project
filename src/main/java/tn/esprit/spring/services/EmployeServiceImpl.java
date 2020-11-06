@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -31,14 +33,18 @@ public class EmployeServiceImpl implements IEmployeService {
 	@Autowired
 	TimesheetRepository timesheetRepository;
 
+	
+	private static final Logger l = LogManager.getLogger(EmployeServiceImpl.class);
 	@Override
 	public Employe authenticate(String login, String password) {
+		l.info(" authentifié !"); 
 		return employeRepository.getEmployeByEmailAndPassword(login, password);
 	}
 
 	@Override
 	public int addOrUpdateEmploye(Employe employe) {
 		employeRepository.save(employe);
+		l.info(" add Or Update Employe avec succès !"); 
 		return employe.getId();
 	}
 
@@ -60,9 +66,12 @@ public class EmployeServiceImpl implements IEmployeService {
 			List<Employe> employes = new ArrayList<>();
 			employes.add(employeManagedEntity);
 			depManagedEntity.setEmployes(employes);
+			l.info(" affecté avec succès !"); 
+			
 		}else{
 
 			depManagedEntity.getEmployes().add(employeManagedEntity);
+			l.info(" affecté avec succès !"); 
 		}
 
 		// à ajouter? 
@@ -87,6 +96,8 @@ public class EmployeServiceImpl implements IEmployeService {
 
 	public int ajouterContrat(Contrat contrat) {
 		contratRepoistory.save(contrat);
+		l.info(" contrat ajouté avec succès !"); 
+
 		return contrat.getReference();
 	}
 
@@ -159,6 +170,7 @@ public class EmployeServiceImpl implements IEmployeService {
 	}
 
 	public List<Employe> getAllEmployes() {
+		l.info(" tout les employes !"); 
 		return (List<Employe>) employeRepository.findAll();
 	}
 
