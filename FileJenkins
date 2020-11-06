@@ -1,7 +1,7 @@
 pipeline {
 agent any
 stages{
-stage('clone repo'){
+stage('clone and repo'){
 steps {
 cleanWs()
 bat "git clone https://github.com/MedHammedi/CI-Project/"
