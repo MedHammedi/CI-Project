@@ -4,15 +4,15 @@ stages{
 stage('clone repo'){
 steps {
 cleanWs()
-bat "git clone https://github.com/MedHammedi/JenkPipeline"
+bat "git clone https://github.com/MedHammedi/CI-Project/"
 }}
 stage('Build and Test'){
 steps{ 
-bat "mvn install -f JenkPipeline"
+bat "mvn install -f CI-Project"
 }}
 stage('Deploy'){
 steps {
-bat "mvn package -f JenkPipeline"
-bat "mvn deploy -f JenkPipeline"
-bat "mvn sonar:sonar -f JenkPipeline"
+bat "mvn package -f CI-Project"
+bat "mvn deploy -f CI-Project"
+bat "mvn sonar:sonar -f CI-Project"
 } }}}
