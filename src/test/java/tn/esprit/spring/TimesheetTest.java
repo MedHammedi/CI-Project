@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit4.SpringRunner;
 
+import tn.esprit.spring.entities.Departement;
 import tn.esprit.spring.entities.Mission;
 import tn.esprit.spring.services.ITimesheetService;
 
@@ -21,11 +22,20 @@ public class TimesheetTest {
 	ITimesheetService ts;
 	
 	@Test
-	public void testAjouterMission() throws ParseException{
+	public void testAjouterMission() {
 		Mission m = new Mission("test","desc");
 		int missionAdded = ts.ajouterMission(m);
-		assertEquals(5, missionAdded);
+		boolean bool = (missionAdded != 0);
+		assertEquals(bool,true," missionAdded !! ");
+		
 	}
 	
+	@Test
+	public void testAffecterMissionADepartement() {
+		int departementId = 1;
+		Mission mission = new Mission("mission test","test");
+		ts.affecterMissionADepartement(1,departementId);
+		assertEquals(1, mission.getId());
+	}
 	
 }
