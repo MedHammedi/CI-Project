@@ -52,7 +52,7 @@ public class TestContratService {
 			Contrat u = new Contrat(d, "CDD", 8500);
 			Contrat userAdded = contratRepoistory.save(u);
 			assertEquals(u.getTypeContrat(), userAdded.getTypeContrat());
-			l.info("\n" + "\n" + "  Contrat Added. ");
+			l.info("\n" + "\n" + "  ContratAdded. ");
 		}
 
 
@@ -64,7 +64,7 @@ public class TestContratService {
 			l.info("\n" + "\n" + " Contrat Affected to Employe . " + "\n" + "\n" );
 		}
 
-		@Test
+		
 		public void testDelteContratbyid() {
 			Contrat c = new Contrat(17);
 			es.deleteContratById(c.getReference());
