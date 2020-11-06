@@ -10,7 +10,7 @@ stage('Build and Test'){
 steps{ 
 bat "mvn install -f CI-Project"
 }}
-stage('Deploy'){
+stage(' Deploy '){
 steps {
 bat "mvn package -f CI-Project"
 bat "mvn deploy -f CI-Project"

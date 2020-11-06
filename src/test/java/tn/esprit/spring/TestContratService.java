@@ -61,7 +61,7 @@ public class TestContratService {
 			Employe e = new Employe(1);
 			es.affecterContratAEmploye(c.getReference(),e.getId());
 			assertEquals(c.getReference(),c.getReference());
-			l.info("\n" + "\n" + " Contrat Affected . " + "\n" + "\n" );
+			l.info("\n" + "\n" + " Contrat Affected to Employe . " + "\n" + "\n" );
 		}
 
 		@Test
