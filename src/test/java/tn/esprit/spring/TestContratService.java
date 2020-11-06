@@ -66,7 +66,7 @@ public class TestContratService {
 
 		@Test
 		public void testDelteContratbyid() {
-			Contrat c = new Contrat(18);
+			Contrat c = new Contrat(13);
 			es.deleteContratById(c.getReference());
 			assertEquals(c.getReference(),c.getReference());
 			l.info("\n" + "\n" + " Contrat Deleted. " + "\n" + "\n");
