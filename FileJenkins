@@ -16,7 +16,7 @@ environment {
         } 
         stage('build & test'){ 
             steps{ 
-                bat "mvn install -f TimeSheet" 
+                bat "mvn install -f CI-Project" 
             }} 
             
         stage('Building image') {
