@@ -16,7 +16,7 @@ environment {
         } 
         stage('build & test'){ 
             steps{ 
-
+                bat mvn package -f CI-Project -DskipTests=true
                 bat "mvn install -f CI-Project" 
             }} 
 
@@ -31,5 +31,5 @@ environment {
             }
         }
     
-
+}
 }
