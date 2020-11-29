@@ -16,25 +16,20 @@ environment {
         } 
         stage('build & test'){ 
             steps{ 
+
                 bat "mvn install -f CI-Project" 
             }} 
+
             
-        stage('Building image') {
-         steps{
-        script {
-          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+       
+        stage("mvn docker image push") {
+            steps {
+                script {
+                bat "docker login  -u 11m89o14h -p Hammedi@1"
+                    bat "mvn dockerfile:push"
+                }
+            }
         }
-      }
-    }
-    stage('Deploy Image') {
-      steps{
-        script {
-          docker.withRegistry( '', registryCredential ) {
-            dockerImage.push()
-          }
-        }
-      }
-    }
     
-    } 
+
 }
