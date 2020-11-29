@@ -1,0 +1,5 @@
+ls
+docker info
+docker build -t 11m89o14h/docker-test:${BUILD_NUMBER} .
+docker tag 11m89o14h/docker-test:${BUILD_NUMBER} 11m89o14h/docker-test:latest
+docker images
