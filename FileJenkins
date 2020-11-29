@@ -1,29 +1,44 @@
 pipeline {
-agent any
 
-stages{
+environment {
+    registry = "11m89o14h/docker-test"
+    registryCredential = 'dockerhub'
+}
+    agent any 
+    stages{ 
 
-stage('clone repo'){
-	steps {
-		cleanWs()
-		bat "git clone https://github.com/MedHammedi/JenkPipeline"
-}}
-stage('Build and Test'){
-	steps{ 
-		bat "mvn install -f JenkPipeline"
-}}
-
-stage("mail") {
-	steps {
-		mail bcc: '', body: '''Hello User the build of your project successed.
-        Jenkins.''', cc: '', from: '', replyTo: '', subject: 'Build succed', to:'hammedim7@gmail.com'
-}}
-
-stage('Deploy'){
-	steps {
-		bat "mvn package -f JenkPipeline"
-		bat "mvn deploy -f JenkPipeline"
-		bat "mvn sonar:sonar -f JenkPipeline"
-}}
-
-}}
+        stage('clone repo'){ 
+            steps{ 
+            	cleanWs()
+                bat "git clone https://github.com/MedHammedi/CI-Project" 
+                 
+            } 
+        } 
+        stage('build & test'){ 
+            steps{ 
+                bat "mvn install -f TimeSheet" 
+            }} 
+            
+        stage('Building image') {
+         steps{
+        script {
+          dockerImage = docker.build registry + ":$BUILD_NUMBER"
+        }
+      }
+    }
+    stage('Deploy Image') {
+      steps{
+        script {
+          docker.withRegistry( '', registryCredential ) {
+            dockerImage.push()
+          }
+        }
+      }
+    }
+    stage('Remove Unused docker image') {
+      steps{
+        sh "docker rmi $registry:$BUILD_NUMBER"
+      }
+    }
+    } 
+}
