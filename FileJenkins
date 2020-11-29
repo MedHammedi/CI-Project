@@ -26,10 +26,12 @@ environment {
             steps {
                 script {
                 bat "docker login  -u 11m89o14h -p Hammedi@1"
-                    bat "mvn dockerfile:push"
+                    bat "mvn DockerFile:push"
                 }
             }
         }
     
 }
+
 }
+
